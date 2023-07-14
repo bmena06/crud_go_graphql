@@ -1,0 +1,38 @@
+type User {
+  _id: String!
+  name: String!
+  phone: String!
+  email: String!
+  deleted: Boolean!
+}
+
+type Query {
+  getusers(search: String, page: Int, perpage: Int ): [User]!
+  getuser(id: String!): User!
+}
+
+type Mutation{
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: String!, input: UpdateUserInput!): User!
+  deleteUser(id: String!): DeleteUserResponse!
+  softdeleteUser(id: String!, input: SoftdeleteUserInput!): User!
+}
+
+input CreateUserInput {
+  name: String!
+  phone: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  name: String
+  phone: String
+  email: String
+}
+
+input SoftdeleteUserInput{
+  deleted: Boolean!
+}
+type DeleteUserResponse {
+  deletedUserId: String!
+} 
