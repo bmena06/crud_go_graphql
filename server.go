@@ -11,12 +11,13 @@ import (
 	"github.com/bmena06/crud_go/domain/usecase"
 	"github.com/bmena06/crud_go/graph"
 	"github.com/bmena06/crud_go/infrastructure"
+	"github.com/joho/godotenv"
 )
 
 const defaultPort = "8080"
 
 func main() {
-
+	godotenv.Load()
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = defaultPort
@@ -39,5 +40,4 @@ func main() {
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
-
 }

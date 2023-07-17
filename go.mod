@@ -9,6 +9,8 @@ require (
 
 require github.com/google/uuid v1.3.0
 
+require github.com/joho/godotenv v1.5.1
+
 require (
 	github.com/agnivade/levenshtein v1.1.1 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
